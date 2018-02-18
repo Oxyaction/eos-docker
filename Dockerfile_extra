@@ -1,0 +1,16 @@
+FROM oxyaction/eos:latest
+
+ENV BINDIR=/opt/eos/build/install/bin
+
+RUN cd /opt/eos/build && make install
+
+RUN sed -i -e 's/fno-exceptions -I/fno-exceptions -I .\/.. -I/g' $BINDIR/eoscpp
+
+ENV PATH="$PATH:$BINDIR"
+
+COPY ./data-dir /opt/eos/build/programs/eosd/data-dir
+
+WORKDIR /opt/eos/build/programs/eosd
+
+CMD './eosd'
+
