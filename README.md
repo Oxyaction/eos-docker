@@ -15,5 +15,5 @@ To build custom version `./build.sh custom-version` (**custom-version** tag shou
 #### Add some bash aliaess
 ```
 alias eosc='docker exec eos eosc'
-alias eos='docker exec -it eos bash
+alias eos='docker exec -it eos bash'
 ```
